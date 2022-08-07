@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const DocReviews = (props) => {
-    const {userID, doctorID,description,point } = props.reviews;
+    const {doctorReviewID,userID, doctorID,description,point } = props.reviews;
     return ( 
         <div id='screen' >
 
@@ -16,6 +16,7 @@ const DocReviews = (props) => {
                     <td class="col-1">{doctorID}</td>
                     <td class="col-1">{description}</td>
                     <td class="col-1">{point}</td>
+                    <td><a href={`/DeleteReviewView/${doctorReviewID}`}>Delete</a></td>
                 
                     </tr>
                 

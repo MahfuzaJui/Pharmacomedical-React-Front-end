@@ -20,15 +20,15 @@ const List = (props) => {
                     <td class="col-1">{dob}</td>
                     <td class="col-1">{gender}</td>
                     <td class="col-1">{role}</td>
-                    <td><a href="/editUser/{{$user->name}}">Edit</a></td>
-            <td><a href="/deleteUser/{{$user->name}}">Delete</a></td>
+                    <td><a href={`/EditUser/${userID}`}>Edit</a></td>
+                    <td><a href={`/DeleteUserView/${userID}`}>Delete</a></td>
             if(verified =="banned" )
                 {
-                    <td><a href="/unban/{{$user->name}}">Unban</a></td>
+                    <td><a href={`/UnbanView/${userID}`}>Unban</a></td>
                     
                 }
             else{
-                <td><a href="/ban/{{$user->name}}">Ban</a></td>
+               <td><a href={`/BanView/${userID}`}>Ban</a></td>
             }
          
         </tr>

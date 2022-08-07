@@ -21,6 +21,7 @@ const Applist = (props) => {
                     <td class="col-1">{hasPaid}</td>
                     <td class="col-1">{paidDateTime}</td>
                     <td class="col-1">{appointmentStatus}</td>
+                    
                     </tr>
                 
                 </tbody>

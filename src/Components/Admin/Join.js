@@ -20,6 +20,8 @@ const Join = (props) => {
                     <td class="col-1">{appointmentDateTime}</td>
                     <td class="col-1">{purpose}</td>
                     <td class="col-1">{link}</td>
+                    <td><a href={`/EditAppView/${appID}`}>Edit</a></td>
+                    <td><a href={`/DeleteAppView/${appID}`}>Delete</a></td>
                     </tr>
                 
                 </tbody>

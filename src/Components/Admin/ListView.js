@@ -1,12 +1,14 @@
 import React , {useState, useEffect} from "react";
 import axios from 'axios';
 import List from './List';
+import Instance from "./Instance";
+import AddUserView from "./AddUserView";
 
 const ListView = ()=>{
 const [users, setUsers] = useState([]);
 
 useEffect(()=>{
-    axios.get("http://127.0.0.1:8000/api/Users/list")
+    axios.get("http://127.0.0.1:8000/api/list")
     .then(resp=>{
         console.log(resp);
         setUsers(resp.data);

@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const Unverified = (props) => {
-    const { name, email, phoneNumber,dob, gender, role } = props.unverifieds;
+    const { userID, name, email, phoneNumber,dob, gender, role } = props.unverifieds;
     return ( 
         <div id='screen' >
 
@@ -18,7 +18,9 @@ const Unverified = (props) => {
                     <td class="col-1">{dob}</td>
                     <td class="col-1">{gender}</td>
                     <td class="col-1">{role}</td>
-                    
+                    <td><a href={`/AcceptView/${userID}`}>Accept</a></td>
+                    <td><a href={`/DeclineView/${userID}`}>Decline</a></td>
+                   
                     </tr>
                 
                 </tbody>
