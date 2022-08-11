@@ -17,27 +17,29 @@ useEffect(()=>{
     });
 },[]);
 return(
-    <div className="row">
-        <div id="screen">
-        <table class="table table-striped" id="list">
-            <thead className="col-md-1">
+    <div>
+        <table class ="table table-border">
+            <thead>
                     <tr>
-                    <th scope="col" class="col-1">ID</th>
-                    <th class="col-1">Name</th>
-                    <th scope="col" class="col-1">Email</th>
-                    <th scope="col" class="col-1">Phone Number</th>
-                    <th scope="col" class="col-1">Password</th>
-                    <th scope="col" class="col-1">Date of Birth:</th>
-                    <th scope="col" class="col-1">Gender</th>
-                    <th scope="col" class="col-1">Role</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Password</th>
+                    <th>Date of Birth:</th>
+                    <th>Gender</th>
+                    <th>Role</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                     </tr>
                 </thead>
-                </table>
-                </div>
+            
         {
             users.map(users=><List users = {users}></List>
             )
         }
+        </table>
     </div>
 
 )

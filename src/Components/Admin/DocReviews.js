@@ -5,12 +5,8 @@ import React from 'react';
 const DocReviews = (props) => {
     const {doctorReviewID,userID, doctorID,description,point } = props.reviews;
     return ( 
-        <div id='screen' >
-
-            <div id="screen">
-            <table  class="table table-striped">
-        
-                <tbody className='col-md-1'>
+    
+                <tbody>
                     <tr>
                     <td scope="row" class="col-1">{userID}</td>
                     <td class="col-1">{doctorID}</td>
@@ -21,9 +17,7 @@ const DocReviews = (props) => {
                     </tr>
                 
                 </tbody>
-                </table>
-                </div>
-        </div>
+            
         
     );
 };

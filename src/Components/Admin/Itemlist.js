@@ -5,12 +5,10 @@ import React from 'react';
 const Itemlist = (props) => {
     const {itemName,price,pharmaceuticalItemID, userID } = props.items;
     return ( 
-        <div id='screen' >
+    
 
-            <div id="screen">
-            <table  class="table table-striped">
         
-                <tbody className='col-md-1'>
+                <tbody>
                     <tr>
                     <td scope="row" class="col-1">{itemName}</td>
                     <td class="col-1">{price}</td>
@@ -20,9 +18,8 @@ const Itemlist = (props) => {
                     </tr>
                 
                 </tbody>
-                </table>
-                </div>
-        </div>
+            
+    
         
     );
 };

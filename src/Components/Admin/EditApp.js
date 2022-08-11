@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-// import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-// import { useHistory } from 'react-router-dom';
-// import Header from '../Header';
+
 
 import { useNavigate } from 'react-router-dom'
 

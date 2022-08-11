@@ -15,25 +15,26 @@ useEffect(()=>{
     });
 },[]);
 return(
-    <div className="row">
-        <div id="screen">
+    <div>
+        
         <table class="table table-striped" >
-            <thead className="col-md-1">
+            <thead>
             <tr>
             <th>Patient ID</th>
             <th>Doctor ID</th>
             <th>Description</th>
             <th>Rating</th>
-        
+            <th></th>
         
         </tr>
                 </thead>
-                </table>
-                </div>
+                
+                
         {
             reviews.map(reviews=><DocReviews reviews = {reviews}></DocReviews>
             )
         }
+        </table>
     </div>
 
 )

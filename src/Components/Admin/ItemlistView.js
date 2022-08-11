@@ -15,10 +15,10 @@ useEffect(()=>{
     });
 },[]);
 return(
-    <div className="row">
-        <div id="">
+    <div>
+    
         <table class="table table-striped" >
-            <thead className="col-md-1">
+            <thead>
             <tr>
             <th>Product</th>
             <th>Price</th>
@@ -27,13 +27,14 @@ return(
         
         
         </tr>
-                </thead>
-                </table>
-                </div>
+            </thead>
+            
+            
         {
             items.map(items=><Itemlist items = {items} />
             )
         }
+        </table>
     </div>
 
 )

@@ -5,14 +5,10 @@ import React from 'react';
 const Unverified = (props) => {
     const { userID, name, email, phoneNumber,dob, gender, role } = props.unverifieds;
     return ( 
-        <div id='screen' >
-
-            <div id="screen">
-            <table  class="table table-striped">
         
-                <tbody className='col-md-1'>
+                <tbody>
                     <tr>
-                    <td scope="row" class="col-1">{name}</td>
+                    <td >{name}</td>
                     <td class="col-1">{email}</td>
                     <td class="col-1">{phoneNumber}</td>
                     <td class="col-1">{dob}</td>
@@ -24,9 +20,7 @@ const Unverified = (props) => {
                     </tr>
                 
                 </tbody>
-                </table>
-                </div>
-        </div>
+                
         
     );
 };

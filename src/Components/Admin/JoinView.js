@@ -16,10 +16,10 @@ useEffect(()=>{
     });
 },[]);
 return(
-    <div className="row">
-        <div id="screen">
-        <table class="table table-striped" >
-            <thead className="col-md-1">
+    <div>
+    
+    <table class ="table table-border">
+            <thead>
             <tr>
             <th>Application ID</th>
             <th>Doctor ID</th>
@@ -29,14 +29,17 @@ return(
             <th>Purpose</th>
             
             <th>Link</th>
+            <th></th>
+            <th></th>
         </tr>
                 </thead>
-                </table>
-                </div>
+            
+                
         {
             app.map(app=><Join app = {app}></Join>
             )
         }
+        </table>
     </div>
 
 )

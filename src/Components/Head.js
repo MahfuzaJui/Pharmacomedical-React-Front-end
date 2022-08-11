@@ -9,6 +9,7 @@ const Head = () => {
     return ( 
         <Navbar bg="dark" variant="dark">
         <Container>
+        <Navbar.Brand href="/AHome">Home</Navbar.Brand>
           <Navbar.Brand href="/ListView">User List</Navbar.Brand>
           <Navbar.Brand href="/JoinView">Appointment List</Navbar.Brand>
           <Navbar.Brand href="/ItemlistView">Products List</Navbar.Brand>

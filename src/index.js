@@ -13,7 +13,7 @@ import Home from './Components/Admin/Home';
 import ListView from './Components/Admin/ListView';
 import JoinView from './Components/Admin/JoinView';
 import ItemlistView from './Components/Admin/ItemlistView';
-import ApplistView from './Components/Admin/ApplistView';
+
 import UnverifiedView from './Components/Admin/UnverifiedView';
 import DocReviewsView from './Components/Admin/DocReviewsView';
 import ProfileAdminView from './Components/Admin/ProfileAdmin';
@@ -29,8 +29,20 @@ import DeclineView from './Components/Admin/DeclineView';
 import AcceptView from './Components/Admin/AcceptView';
 import BanView from './Components/Admin/BanView';
 import UnbanView from './Components/Admin/UnbanView';
-// import Chart from './Components/Admin/Chart';
+import AHome from './Components/Admin/AHome';
 import Register from './Components/Register';
+import DoctorProfile from './Doctors/DoctorProfile';
+import HomeDoctor from './Doctors/HomeDoctor';
+import DoctorFee from './Doctors/DoctorFee';
+import PrescriptionsList from './Doctors/PrescriptionsList';
+import ItemList from './Components/Pharmacist/ItemList';
+import ItemDetails from './Components/Pharmacist/ItemDetails';
+import UserList from './Components/Pharmacist/UserList';
+import UserDetails from './Components/Pharmacist/UserDetails';
+import CreateItem from './Components/Pharmacist/CreateItem';
+import EditItem from './Components/Pharmacist/EditItem';
+import ListItem from './Components/Pharmacist/ListItem';
+
 
 import { render } from "react-dom";
 
@@ -58,7 +70,7 @@ root.render(
         <Route exact path='/' element={<Home/>} />
         <Route exact path='/JoinView' element={<JoinView/>} />
         <Route exact path='/ItemlistView' element={<ItemlistView/>} />
-        <Route exact path='/ApplistView' element={<ApplistView/>} />
+      
         <Route exact path='/UnverifiedView' element={<UnverifiedView/>} />
         <Route exact path='/DocReviewsView' element={<DocReviewsView/>} />
         <Route exact path='/ProfileAdminView' element={<ProfileAdminView/>}/>
@@ -73,8 +85,19 @@ root.render(
         <Route exact path='/AcceptView/:userID' element={<AcceptView/>} />
         <Route exact path='/BanView/:userID' element={<BanView/>} />
         <Route exact path='/UnbanView/:userID' element={<UnbanView/>} />
-        {/* <Route exact path='/Chart' element={<Chart/>} /> */}
+        <Route exact path='/AHome' element={<AHome/>} />
         <Route exact path='/registration' element={<Register/>} />
+        <Route exact path='/doctorProfile' element={<DoctorProfile/>} />
+        <Route exact path='/homeDoctor' element={<HomeDoctor/>} />
+        <Route exact path='/doctorFee' element={<DoctorFee/>} />
+        <Route exact path='/prescriptionsList' element={<PrescriptionsList/>} />
+        <Route exact path='/itemDetails/:userID/:itemName/:price' element={<ItemDetails/>} />
+        <Route exact path='/userList' element={<UserList/>} />
+        <Route exact path='/userDetails/:userID/:name/:email/:phoneNumber/:password/:dob/:gender/:role' element={<UserDetails/>}/>
+        <Route exact path='/createItem' element={<CreateItem/>} />
+        <Route exact path='/item/:id/edit' element={<EditItem/>} />
+        <Route exact path='/listItem' element={<ListItem/>} />
+        <Route exact path='/itemList' element={<ItemList/>} />
         
         <Route exact path='/login' element={<Login/>} />
         

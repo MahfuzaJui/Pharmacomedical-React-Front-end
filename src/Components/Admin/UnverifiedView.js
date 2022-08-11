@@ -15,10 +15,10 @@ useEffect(()=>{
     });
 },[]);
 return(
-    <div className="row">
-        <div id="screen">
-        <table class="table table-striped" >
-            <thead className="col-md-1">
+    <div>
+    
+        <table class ="table table-border">
+            <thead>
             <tr>
             <th>Name</th>
             <th>Email</th>
@@ -26,14 +26,17 @@ return(
             <th>Date of Birth</th>
             <th>Gender</th>
             <th>Role</th>
+            <th></th>
+            <th></th>
         </tr>
                 </thead>
-                </table>
-                </div>
+                
+            
         {
             unverifieds.map(unverifieds=><Unverified unverifieds = {unverifieds}></Unverified>
             )
         }
+        </table>
     </div>
 
 )

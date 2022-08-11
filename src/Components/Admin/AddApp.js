@@ -5,9 +5,8 @@ import React, { useEffect, useState } from 'react';
 import AddAppView from './AddAppView';
 import { useNavigate } from 'react-router-dom'
 
-const AddApp = (props) => {
-    const{appointmentDateTime,userID,doctorID,purpose,visited,hasPaid,paidDateTime,appointmentStatus,link}=props.app
-    // const uid=localStorage.getItem('userID')
+const AddApp = () => {
+  
     const [update,setUpdate ]=useState({
 
         appointmentDateTime:"",
@@ -21,42 +20,26 @@ const AddApp = (props) => {
         link:"",
 
     });
-    //update.name=uid;
+  
 
-    const mount=()=>{
-        setUpdate(
-            {
-                ...update,
-
-                appointmentDateTime:appointmentDateTime,
-                userID:userID,
-                doctorID:doctorID,
-                purpose:purpose,
-                visited:visited,
-                hasPaid:hasPaid,
-                paidDateTime:paidDateTime,
-                appointmentStatus:appointmentStatus,
-                link:link
-            
-            }
-        )
-    }
-    useEffect(()=>{
-        mount()
-    },[])
+  
     console.log(update)
     const handleChange=(e)=>{
         const newUpdate={...update};
         newUpdate[e.target.name]=e.target.value 
         setUpdate(newUpdate);
     }
+    const navigate=useNavigate()
+    const [appointmentDateTimeErr, setAppointmentDateTimeErr]=useState("");
+    const [userIDErr, setUserIDErr]=useState("");
+    const [doctorIDErr, setDoctorIDErr]=useState("");
+    const [purposeErr, setPurposeErr]=useState("");
+    const [visitedErr, setVisitedErr]=useState("");
+    const [hasPaidErr, setHasPaidErr]=useState("");
+    const [paidDateTimeErr, setPaidDateTimeErr]=useState("");
+    const [appointmentStatusErr, setAppointmentStatusErr]=useState("");
+    const [linkErr, setLinkErr]=useState("");
 
-    const history=useNavigate()
-    // const [nameErr, setNameErr]=useState("");
-    // const [priceErr, setPriceErr]=useState("");
-    // const [shortdescErr, setShortdescErr]=useState("");
-    // const [descErr, setDescErr]=useState("");
-    // const [imageErr, setImageErr]=useState("");
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -65,16 +48,62 @@ const AddApp = (props) => {
             console.log(update)
             axios.post(`http://127.0.0.1:8000/api/addapp`,update)
             .then(resp=>{
-              history.push('/ApplistView')
+              if (!resp.data) {
+                console.log('erorr')
+            } else {
+              
+              navigate('/JoinView');
+            }
           }).catch(err=>{
-            console.log(err);
-          });
-          e.preventDefault();
-      }
+              console.log(err);
+            });
         }
-    
 
-
+        else{
+          if(update.appointmentDateTime==="")
+          setAppointmentDateTimeErr("Appointment Date and Time are required");
+          else
+          setAppointmentDateTimeErr("")
+  
+          if(update.userID==="")
+          setUserIDErr("Patient ID is required")
+          else
+          setUserIDErr("")
+          if(update.doctorID==="")
+          setDoctorIDErr("Doctor ID is required")
+          else
+          setDoctorIDErr("")
+          if(update.purpose==="")
+          setPurposeErr("Purpose is required")
+          else
+          setPurposeErr("")
+          if(update.visited==="")
+          setVisitedErr("Visited field is required")
+          else
+          setVisitedErr("")
+          if(update.hasPaid==="")
+          setHasPaidErr("Payment status is required")
+          else
+          setHasPaidErr("")
+          if(update.paidDateTime==="")
+          setPaidDateTimeErr("Payment Date and Time are required")
+          else
+          setPaidDateTimeErr("")
+          if(update.appointmentStatus==="")
+          setAppointmentStatusErr("Appointment Status is required")
+          else
+          setAppointmentStatusErr("")
+          if(update.link==="")
+          setLinkErr("Appointment Link is required")
+          else
+          setLinkErr("")
+  
+  
+      }
+          }
+      
+  
+  
     return (
         <div>
             {/* <Header/> */}
@@ -83,48 +112,78 @@ const AddApp = (props) => {
           
             <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}>Appointment Date and Time:</label>
-                <input type="text" name="appointmentDateTime" className="form-control" id="formGroupExampleInput" onChange={handleChange}/>
-                {/* <p style={{color: "red"}}>{priceErr}</p> */}
+                <input type="datetime-local" name="appointmentDateTime" className="form-control" id="formGroupExampleInput" onChange={handleChange}/>
+                <p style={{color: "red"}}>{appointmentDateTimeErr}</p>
               </div>
               <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}>Patient ID:</label>
-                <input type="text" name="userID" className="form-control" id="formGroupExampleInput"  onChange={handleChange} />
-                {/* <p style={{color: "red"}}>{shortdescErr}</p> */}
+                <select id="userID" name="userID" onChange={handleChange}>
+                <option value="Select Patient ID">Select Patient ID</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="16">16</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="27">27</option>
+  
+</select>
+                <p style={{color: "red"}}>{userIDErr}</p>
               </div>
               <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}>Doctor ID:</label>
-                <input type="text" className="form-control" id="exampleFormControlTextarea1" rows="3" name="doctorID"  onChange={handleChange}/>
-                {/* <p style={{color: "red"}}>{descErr}</p> */}
+                <select id="doctorID" name="doctorID" onChange={handleChange}>
+                <option value="Select Doctor ID">Select Doctor ID</option>
+                <option value="1">1</option>
+  <option value="2">2</option>
+
+  
+</select>
+                <p style={{color: "red"}}>{doctorIDErr}</p>
               </div>
               
               <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}>Purpose:</label>
                 <input type="text" className="form-control" id="exampleFormControlTextarea1" rows="3" name="purpose"  onChange={handleChange}/>
-                {/* <p style={{color: "red"}}>{descErr}</p> */}
+                <p style={{color: "red"}}>{purposeErr}</p>
               </div>
               <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}> Visited:</label>
-                <input type="text" name="visited" className="form-control" id="formGroupExampleInput"  onChange={handleChange} />
-                {/* <p style={{color: "red"}}>{shortdescErr}</p> */}
+                <select id="visited" name="visited" onChange={handleChange}>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+
+  
+</select>
+                <p style={{color: "red"}}>{visitedErr}</p>
               </div>
               <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}> Has Paid:</label>
-                <input type="text" className="form-control" id="exampleFormControlTextarea1" rows="3" name="hasPaid"  onChange={handleChange}/>
-                {/* <p style={{color: "red"}}>{descErr}</p> */}
+                <select id="hasPaid" name="hasPaid" onChange={handleChange}>
+  <option value="True">True</option>
+  <option value="False">False</option>
+
+  
+</select>
+                <p style={{color: "red"}}>{hasPaidErr}</p>
               </div>
               <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}> Paid Date and Time:</label>
-                <input type="text" className="form-control" id="exampleFormControlTextarea1" rows="3" name="paidDateTime"  onChange={handleChange}/>
+                <input type="datetime-local" className="form-control" id="exampleFormControlTextarea1" rows="3" name="paidDateTime"  onChange={handleChange}/>
+                <p style={{color: "red"}}>{paidDateTimeErr}</p>
                 <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}> Appointment Status:</label>
                 <input type="text" className="form-control" id="exampleFormControlTextarea1" rows="3" name="appointmentStatus"  onChange={handleChange}/>
-                {/* <p style={{color: "red"}}>{descErr}</p> */}
+                <p style={{color: "red"}}>{appointmentStatusErr}</p>
               </div>
               <div className="mb-3">
                 <label for="formGroupExampleInput" className="form-label" style={{marginTop: "20px"}}> Link:</label>
                 <input type="text" className="form-control" id="exampleFormControlTextarea1" rows="3" name="link"  onChange={handleChange}/>
                 </div>
-                {/* <p style={{color: "red"}}>{descErr}</p> */}
+                <p style={{color: "red"}}>{linkErr}</p>
               </div>
              
 
